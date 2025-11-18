@@ -3,8 +3,8 @@ public class Main {
         Contatore counter = new Contatore();
 
         // Create multiple threads to increment the counter
-        Thread t1 = new Thread(() -> counter.increment());
-        Thread t2 = new Thread(() -> counter.increment());
+        Thread t1 = new Thread(() -> counter.run());
+        Thread t2 = new Thread(() -> counter.run());
         SynchronizedBlockExample example = new SynchronizedBlockExample();
         Thread t3 = new Thread(() -> example.increment());
         Thread t4 = new Thread(() -> example.increment());
@@ -23,6 +23,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("Final count: " + counter.getCount());
+        System.out.println("Final count(metodo): " + counter.getCount());
+        System.out.println("Final count(blocco): " + example.getCount());
     }
 }
